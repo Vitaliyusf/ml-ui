@@ -1,0 +1,32 @@
+@import '../../scss/colors.scss';
+@import '../../scss/borders.scss';
+
+.schedule-content {
+  .input {
+    min-width: 230px;
+
+    &_container {
+      display: flex;
+    }
+  }
+
+  .select {
+    min-width: 230px;
+    height: auto;
+  }
+
+  .checkbox_container {
+    display: flex;
+    margin: 23px 0;
+    padding: 10px 10px 10px 0;
+  }
+
+  .input_container,
+  .date-picker-container {
+    .input-wrapper {
+      margin-right: 15px;
+      border: $primaryBorder;
+      border-radius: 4px;
+    }
+  }
+}

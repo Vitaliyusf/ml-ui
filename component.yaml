@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: mlrun
+metadata:
+  name: mlrun-node-port
+spec:
+  type: NodePort
+  ports:
+  - port:  3050 #POD that needs multi-client Pod
+    targetPort:  3000 #the port inside the pod with want to open
+    nodePort: 31515 #nodePort: 31515 the port we will access in the URL 
+  selector:
+    component: web #the connection with other yamls
+
+
+    

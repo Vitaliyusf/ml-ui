@@ -1,0 +1,70 @@
+@import '../../scss/colors';
+@import '../../scss/borders';
+@import '../../scss/mixins';
+
+.item-info {
+  &__header {
+    margin: 0;
+    padding: 21.5px 36px;
+    font-size: 25px;
+    border-bottom: $tableBorder;
+  }
+
+  &__details {
+    margin: 0;
+    padding: 0 30px;
+    list-style-type: none;
+
+    .details-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 18px;
+      border-bottom: $tableBorder;
+
+      &__header {
+        min-width: 100px;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 24px;
+        text-transform: capitalize;
+      }
+
+      &__data {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        min-width: 60px;
+        padding-left: 16px;
+      }
+
+      &__path {
+        cursor: pointer;
+      }
+
+      &__status {
+        text-transform: capitalize;
+
+        .status-icon {
+          margin-left: 5px;
+        }
+      }
+
+      &__link {
+        color: $cornflowerBlue;
+      }
+
+      &__parameters {
+        @include chip($parametersBorder);
+      }
+
+      &__labels {
+        @include chip($labelBorder);
+      }
+
+      &__results {
+        @include chip($resultsBorder);
+      }
+    }
+  }
+}

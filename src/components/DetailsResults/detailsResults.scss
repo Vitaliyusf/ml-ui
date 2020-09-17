@@ -1,0 +1,13 @@
+.result_table {
+  display: flex;
+  padding: 10px;
+  .result_table {
+    &_item {
+      &_key,
+      &_value {
+        display: flex;
+        flex: 1;
+      }
+    }
+  }
+}

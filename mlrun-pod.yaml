@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mlrun-pod
+  labels:
+    component: web #the connection with other yamls
+spec:
+  containers:
+  - name: client
+    image: vitaliyus/mlrun
+    ports:
+     - containerPort: 3000 #the port we mapped for the container

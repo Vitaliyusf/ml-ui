@@ -1,0 +1,274 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/borders';
+@import '../../scss/shadows';
+
+.table {
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 240px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: calc(100% - 240px);
+    height: 100%;
+    overflow-y: auto;
+    color: $mulledWine;
+    background-color: $white;
+    border-left: $tableBorder;
+
+    .item {
+      &-header {
+        display: flex;
+        justify-content: space-between;
+
+        &__data {
+          h3 {
+            margin: 27px 24px 10px;
+            font-size: 24px;
+            line-height: 28px;
+          }
+
+          span {
+            display: flex;
+            align-items: center;
+            margin-left: 24px;
+            font-size: 15px;
+            line-height: 18px;
+          }
+
+          i {
+            margin-left: 10px;
+          }
+        }
+
+        &__buttons {
+          display: flex;
+          align-items: center;
+
+          a {
+            display: inline-block;
+            margin: 21px 21px 21px 10px;
+          }
+
+          .table-actions-container {
+            display: block;
+          }
+        }
+      }
+
+      &-menu {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 29px 0 0;
+        list-style-type: none;
+        border-bottom: $tableBorder;
+
+        .menu-tab {
+          padding: 8px 24px;
+          color: $topaz;
+          font-weight: bold;
+          text-transform: capitalize;
+          border-bottom: 3px solid transparent;
+          cursor: pointer;
+
+          &.active-tab {
+            color: $cornflowerBlue;
+            border-bottom-color: $cornflowerBlue;
+          }
+        }
+      }
+    }
+
+    &_inputs {
+      width: 100%;
+
+      @include resetSpaces;
+
+      &_item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 27px 24px;
+        border-bottom: $tableBorder;
+
+        div {
+          min-width: 237px;
+        }
+      }
+    }
+
+    &_results {
+      position: relative;
+      width: 100%;
+
+      &__table {
+        position: relative;
+        width: 100%;
+        text-align: left;
+
+        &_row {
+          display: flex;
+          flex-direction: row;
+          border-bottom: $tableBorder;
+
+          &_cell {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            width: 55px;
+            padding: 19px 16px;
+          }
+        }
+
+        &_header {
+          position: sticky;
+          top: 0;
+          z-index: 2;
+          background-color: $white;
+
+          &_item {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            width: 55px;
+
+            @include tableHeader(16px);
+          }
+        }
+
+        i {
+          margin: 0 15px;
+        }
+
+        &_medal {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          img {
+            margin-left: 10px;
+          }
+
+          svg {
+            position: absolute;
+            top: 15px;
+            left: -10px;
+          }
+        }
+
+        tbody {
+          tr {
+            &:hover {
+              background-color: $alabaster;
+            }
+          }
+        }
+      }
+    }
+
+    &_logs {
+      position: relative;
+      width: 100%;
+      min-height: 400px;
+      padding: 5px;
+      overflow-y: scroll;
+      color: $white;
+      font-family: 'Source Code Pro', 'Courier New', monospace;
+      white-space: pre-wrap;
+      background-color: $black;
+
+      .logs_refresh {
+        position: absolute;
+        top: 32px;
+        right: 29px;
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        color: $cornflowerBlue;
+        background-color: $white;
+        border: 1px solid $cornflowerBlue;
+        border-radius: 16px;
+        box-shadow: $previewBoxShadow;
+        cursor: pointer;
+
+        svg {
+          path {
+            fill: $cornflowerBlue;
+          }
+        }
+
+        &:active,
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+
+    &_artifacts {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+
+      &_wrapper {
+        width: 100%;
+      }
+    }
+
+    .preview_container {
+      position: relative;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 10px 0 10px 21px;
+
+      .inputs_container {
+        width: 100%;
+      }
+
+      .preview_popout {
+        position: absolute;
+        right: 0;
+        z-index: 3;
+        margin: 16px;
+        padding: 0;
+        background: $white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+
+      .json {
+        padding: 0 15px;
+      }
+
+      .preview-table {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        overflow: auto;
+
+        .table-header {
+          top: 0;
+        }
+      }
+    }
+
+    &_code {
+      flex: 1;
+
+      h3 {
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      pre {
+        padding: 8px 16px;
+      }
+    }
+  }
+}

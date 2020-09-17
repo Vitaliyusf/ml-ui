@@ -1,0 +1,46 @@
+@import '../../scss/colors.scss';
+@import '../../scss/shadows.scss';
+
+.notification {
+  &_container {
+    background-color: $darkPurple;
+    box-shadow: $tooltipShadow;
+    color: $white;
+    border-radius: 2px;
+    padding: 15px;
+  }
+  &_body {
+    display: flex;
+    align-items: center;
+    &_icon {
+      .success_icon {
+        height: 14px;
+        width: 14px;
+      }
+      .alert_icon {
+        height: 14px;
+        width: 4px;
+      }
+    }
+    .notification_body_wrapper {
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      margin-right: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &_alert_icon {
+      background-color: $burntSienna;
+    }
+    &_success_icon {
+      background-color: $brightTurquoise;
+    }
+    &_button {
+      margin-left: 15px;
+      color: $portage;
+      cursor: pointer;
+    }
+  }
+}

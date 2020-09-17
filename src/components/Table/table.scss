@@ -1,0 +1,292 @@
+@import '../../scss/variables';
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/borders';
+@import '../../scss/shadows';
+
+.table {
+  @include jobsFlex;
+
+  position: relative;
+  min-height: 600px;
+  border-top: $tableBorder;
+
+  &_opened {
+    height: 72vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  &__content {
+    width: 100%;
+
+    .jobs {
+      &_medium {
+        max-width: 250px;
+
+        @include tableColumnFlex(0.6, 240px);
+      }
+
+      &_small {
+        max-width: 150px;
+
+        @include tableColumnFlex(0.5, 75px);
+      }
+
+      &_big {
+        @include tableColumnFlex(2, 80px);
+      }
+
+      &_extra-small {
+        max-width: 85px;
+
+        @include tableColumnFlex(0.2, 65px);
+      }
+    }
+
+    .artifacts {
+      &_medium {
+        max-width: 245px;
+
+        @include tableColumnFlex(1, 185px);
+      }
+
+      &_small {
+        max-width: 150px;
+
+        @include tableColumnFlex(0.5, 80px);
+
+        a {
+          display: inline;
+        }
+      }
+
+      &_big {
+        @include tableColumnFlex(1, 80px);
+      }
+
+      &_extra-small {
+        @include tableColumnFlex(0.3, 65px);
+      }
+
+      &__btn-icon {
+        justify-content: center;
+      }
+    }
+
+    .functions {
+      &_medium {
+        @include tableColumnFlex(1, 240px);
+      }
+
+      &_small {
+        @include tableColumnFlex(1, 80px);
+      }
+
+      &_big {
+        @include tableColumnFlex(2, 80px);
+      }
+    }
+  }
+
+  &-head {
+    display: flex;
+
+    &__item {
+      flex: 1;
+
+      @include tableDet;
+      @include tableHeader(5px);
+
+      &.buttonPopout,
+      &.buttonDownload {
+        @include tableColumnFlex(0.5, 80px);
+      }
+    }
+  }
+
+  .action_cell {
+    width: 20px;
+    max-width: 20px;
+    padding: 0;
+  }
+
+  &-body {
+    color: $mulledWine;
+
+    &__cell {
+      @include tableDet;
+
+      flex-wrap: wrap;
+      padding: 8px 5px;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+
+      &_type {
+        text-transform: capitalize;
+      }
+
+      a {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        margin: 0;
+        color: $cornflowerBlue;
+        text-decoration: none;
+
+        .status {
+          position: absolute;
+          left: -34px;
+        }
+
+        span {
+          display: block;
+          color: $topaz;
+        }
+      }
+
+      i {
+        margin: 0 17px;
+      }
+
+      button {
+        display: flex;
+        padding: 0;
+        font-size: 15px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      .expand-arrow {
+        position: absolute;
+        left: 10px;
+        cursor: pointer;
+      }
+
+      .text_small {
+        min-width: 100%;
+        max-width: 50px;
+      }
+
+      .path-tooltip {
+        cursor: pointer;
+      }
+    }
+
+    &__row {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      min-height: 50px;
+
+      &.parent-row {
+        &:not(.parent-row-expanded) {
+          &:hover {
+            background-color: $alabaster;
+          }
+
+          &:not(.parent-row_without-actions) {
+            &:hover {
+              .action_cell {
+                .table-actions-container {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+
+        &-expanded {
+          flex-direction: column;
+        }
+
+        .row_grouped-by {
+          width: 100%;
+
+          .table-body__row {
+            &:first-child {
+              .table-body__cell {
+                border-bottom: none;
+
+                .expand-arrow {
+                  transform: rotate(90deg);
+                }
+              }
+            }
+
+            &__cell {
+              display: flex;
+            }
+
+            &:hover {
+              background-color: $alabaster;
+
+              .action_cell {
+                .table-actions-container {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__parameters {
+      @include chip($parametersBorder);
+    }
+
+    &__results {
+      @include chip($resultsBorder);
+
+      display: flex;
+    }
+
+    &__labels {
+      @include chip($labelBorder);
+    }
+  }
+
+  .name-wrapper {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .item {
+      &-name {
+        min-width: 100%;
+        max-width: 125px;
+
+        &.function-name {
+          max-width: 120px;
+        }
+      }
+
+      &-tag {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .date__uid_row {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    font-size: 12px;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    line-height: 14px;
+
+    span:last-child {
+      margin-left: 10px;
+    }
+  }
+
+  .row_active {
+    background-color: $alabaster;
+  }
+}

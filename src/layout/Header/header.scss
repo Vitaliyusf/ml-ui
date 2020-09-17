@@ -1,0 +1,48 @@
+@import "../../scss/variables";
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/shadows';
+@import '../../scss/borders';
+
+.header {
+  @include fixed;
+  background-color: $ebonyClay;
+  width: 100%;
+  display: flex;
+  z-index: 4;
+  box-shadow: $mainHeaderShadow;
+  min-height: 64px;
+  padding: 0 24px;
+  align-items: center;
+  color: $white;
+  &__logo {
+    width: 43px;
+    height: 43px;
+    img {
+      width: 100%;
+    }
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    span {
+      font-weight: 300;
+    }
+  }
+  &__beta {
+    font-variant: small-caps;
+    margin-left: 4px;
+    margin-bottom: -6px;
+  }
+  &__link {
+    padding: 5px 15px;
+    text-decoration: none;
+    color: $white;
+    min-width: 64px;
+    margin-left: auto;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: $gitBorder;
+    border-radius: $mainBorderRadius;
+  }
+}

@@ -1,0 +1,32 @@
+@import "../../scss/mixins";
+@import '../../scss/colors';
+
+.breadcrumbs {
+  font-size: 20px;
+  line-height: 23px;
+  @include resetSpaces;
+  &__list {
+    @include resetSpaces;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-weight: 400;
+    letter-spacing: 0.00938em;
+  }
+  &__item {
+    color: $topaz;
+    &:last-child {
+      color: $mulledWine;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 23px;
+    }
+  }
+  &_separator {
+    display: flex;
+    margin: 0 8px;
+    user-select: none;
+    color: $topaz;
+  }
+}
